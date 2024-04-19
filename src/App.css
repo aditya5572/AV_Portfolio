@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  /* background-image: url('./assets/swiss-alps-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 100vh; */
 }
 
 .App-logo {
