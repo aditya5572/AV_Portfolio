@@ -1,12 +1,16 @@
-import './App.css';
 import React, { StyleSheet } from 'react'
-import Intro from './components/Intro';
+import './App.css';
 import backgroundImage from './assets/swiss-alps-wallpaper.jpg';
+
+import Intro from './components/Intro';
+import Header from './components/Header';
+
 
 function App() {
   return (
     <div className="App">
       <div style={styles.mainContainer}>
+        <Header/>
         <Intro/>
       </div>
     </div>
@@ -20,9 +24,5 @@ const styles = {
     backgroundColor: "#242943",
     width: '100vw',
     height: '100vh',
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 };
