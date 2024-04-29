@@ -1,10 +1,23 @@
-import React from 'react';
-import logo from '../assets/logo-A.png';
+import React, { useState } from 'react';
+import logo from '../assets/logo_a_nobg.png';
+import { motion } from "framer-motion";
 
 const Header = () => {
+  const [imgHover, setImgHover] = useState(false);
+  // console.log(imgHover)
+
   return (
     <div style={styles.mainContainer}>
-        <img src={logo} style={styles.logo} />
+      <motion.img src={logo} style={styles.logo} 
+        onMouseEnter={() => setImgHover(true)}
+        animate={imgHover && {
+          rotateY: 360,
+        }}
+        onAnimationComplete={() => setImgHover(false)}
+        transition={{
+          duration: 0.7,
+        }}
+      />
     </div>
   )
 }
@@ -23,7 +36,7 @@ const styles = {
   },
   logo: {
     marginLeft: 50,
-    width: 130,
-    height: 130
+    width: 100,
+    height: 100,
   },
 };

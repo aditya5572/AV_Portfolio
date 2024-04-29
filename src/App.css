@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
   /* background-image: url('./assets/swiss-alps-wallpaper.jpg');
   background-size: cover;
   background-position: center;
@@ -40,4 +41,195 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ----------------------------------- */
+
+
+.click-me-button {
+  position: relative;
+  padding: 2px 36px;
+  font-size: 30px;
+  color: #1e9bff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  text-shadow: 0 0 15px #1e9bff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.4s;
+  z-index: 1;
+  margin-top: 50px;
+}
+.click-me-button:hover {
+  cursor: pointer;
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0px #1e9bff;
+}
+.click-me-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: #1e9bff;
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.4s;
+}
+.click-me-button:hover::before {
+  transform: scale(1);
+  box-shadow: 0 0 10px #1e9bff,
+    0 0 30px #1e9bff,
+    0 0 60px #1e9bff;
+}
+
+.click-me-button span {
+  position: absolute;
+  background: #1e9bff;
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #1e9bff,
+    0 0 20px #1e9bff,
+    0 0 30px #1e9bff,
+    0 0 50px #1e9bff,
+    0 0 100px #1e9bff;
+  transition: 0.4s ease-in-out;
+}
+.click-me-button:hover span {
+  opacity: 0;
+  transition-delay: 0s;
+}
+.click-me-button span:nth-child(1),
+.click-me-button span:nth-child(3) {
+  width: 40px;
+  height: 4px;
+}
+
+.click-me-button:hover span:nth-child(1),
+.click-me-button:hover span:nth-child(3) {
+  transform: translateX(0);
+}
+
+.click-me-button span:nth-child(2),
+.click-me-button span:nth-child(4) {
+  width: 4px;
+  height: 40px;
+}
+
+.click-me-button:hover span:nth-child(1),
+.click-me-button:hover span:nth-child(3) {
+  transform: translateY(0);
+}
+
+.click-me-button span:nth-child(1) {
+  top: calc(50% - 2px);
+  left: -55px;
+  transform-origin: left;
+}
+
+.click-me-button:hover span:nth-child(1) {
+  left: 50%;
+}
+
+.click-me-button span:nth-child(3) {
+  top: calc(50% - 2px);
+  right: -55px;
+  transform-origin: right;
+}
+
+.click-me-button:hover span:nth-child(3) {
+  right: 50%;
+}
+
+.click-me-button span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: -55px;
+  transform-origin: top;
+}
+
+.click-me-button:hover span:nth-child(2) {
+  top: 50%;
+}
+
+.click-me-button span:nth-child(4) {
+  left: calc(50% - 2px);
+  bottom: -55px;
+  transform-origin: bottom;
+}
+
+.click-me-button:hover span:nth-child(4 ) {
+  bottom: 50%;
+}
+
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }

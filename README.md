@@ -1,5 +1,13 @@
 # Getting Started with Create React App
 
+## Good Fonts [Google fonts & 1001fonts.com]
+- Lilita One
+- Madimi One
+- Paytone One
+- Bungee
+- Nexa Rust
+- Good times
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
