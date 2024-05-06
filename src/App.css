@@ -1,16 +1,19 @@
 .App {
   text-align: center;
   overflow-x: hidden;
-  /* background-image: url('./assets/swiss-alps-wallpaper.jpg');
-  background-size: cover;
-  background-position: center;
-  width: auto;
-  height: 100vh; */
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.mainContainerLanding {
+  /* background-image: url('./assets/swiss-alps-wallpaper.jpg'); */
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 100vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -164,6 +167,31 @@
 .click-me-button:hover span:nth-child(4 ) {
   bottom: 50%;
 }
+
+
+/* -------------------------------------- */
+
+
+.jumping-arrows span {
+  position: absolute;
+  background: #1e9bff;
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #1e9bff,
+    0 0 20px #1e9bff,
+    0 0 30px #1e9bff,
+    0 0 50px #1e9bff,
+    0 0 100px #1e9bff;
+  transition: 0.4s ease-in-out;
+}
+.jumping-arrows span:nth-child(1),
+.jumping-arrows span:nth-child(2) {
+  width: 40px;
+  height: 4px;
+}
+
+
+
 
 
 /* CSS */

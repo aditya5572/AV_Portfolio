@@ -6,7 +6,7 @@ const Welcome = () => {
   const letters = ["W", "E", "L", "C", "O", "M", "E"];
 
   return (
-    <div>
+    <div style={{ zIndex: 3 }}>
       <Font family="Paytone One">
         <motion.div
           initial={{
@@ -15,7 +15,7 @@ const Welcome = () => {
           animate={{
             scale: 1.2,
           }}
-          transition={{ duration: 1.5, type: "spring" }}
+          transition={{ duration: 3, type: "spring" }}
           style={styles.welcomeContainer}
         >
           {letters.map((letter) => {
@@ -23,8 +23,8 @@ const Welcome = () => {
               <motion.span
                 whileHover={{
                   color: "#3ed6ff",
-                  scaleY: 1.1,
-                  y: -5,
+                  scaleY: 1.15,
+                  y: -8,
                 }}
                 style={styles.welcomeText}
               >
@@ -34,6 +34,13 @@ const Welcome = () => {
           })}
         </motion.div>
       </Font>
+      <div style={styles.welcomeBottomContainer}>
+        <div style={styles.welcomeBottomText}>
+          <Font family="Play">
+            A Portfolio Megaverse
+          </Font>
+        </div>
+      </div>
     </div>
   );
 };
@@ -93,23 +100,25 @@ const NAME = () => {
   );
 };
 
-const Intro = () => {
-  const [showName, setShowName] = useState(false);
-  const [showClickMeButton, setshowClickMeButton] = useState(false);
+const Landing = () => {
+  // const [showName, setShowName] = useState(false);
+  // const [showClickMeButton, setshowClickMeButton] = useState(false);
 
   return (
-    <div style={styles.mainContainer}>
+    <div className="mainContainerLanding" style={styles.mainContainer}>
+      <div style={styles.transparencyLayer}>
+      </div>
       <Welcome />
 
-      <motion.div
+      {/* <motion.div
         style={styles.rectangle}
         initial={{ width: 0 }}
         animate={{ width: 820 }}
         transition={{ duration: 2, delay: 1 }}
-        onAnimationComplete={() => setshowClickMeButton(true)}
-      />
+        // onAnimationComplete={() => setshowClickMeButton(true)}
+      /> */}
 
-      {showName ? (
+      {/* {showName ? (
         <NAME />
       ) : (
         <motion.div style={styles.introContainer}>
@@ -137,21 +146,37 @@ const Intro = () => {
             </motion.div>
           )}
         </motion.div>
-      )}
+      )} */}
+
+      <motion.div
+        className="jumping-arrows"
+        style={styles.jumpingArrows}
+      ></motion.div>
     </div>
   );
 };
 
-export default Intro;
+export default Landing;
 
 const styles = {
   mainContainer: {
-    width: "100%",
-    height: "100%",
+    width: "100vw",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "black",
+  },
+  transparencyLayer: {
+    width: "100%",
+    height: "100%",
+    position: 'absolute',
+    backgroundColor: 'black',
+    opacity: 0.8,
+    zIndex: 2,
+    top: 0,
+    left: 0,
   },
   welcomeContainer: {
     display: "flex",
@@ -159,10 +184,19 @@ const styles = {
   },
   welcomeText: {
     fontWeight: "bold",
-    fontSize: 120,
+    fontSize: '7vw',
     color: "#ffffff",
-    letterSpacing: 18,
+    letterSpacing: 9,
     transform: `scaleY(0.9)`,
+  },
+  welcomeBottomContainer: {
+
+  },
+  welcomeBottomText: {
+    fontWeight: "bold",
+    fontSize: '2vw',
+    color: "#25b448",
+    letterSpacing: 5,
   },
   rectangle: {
     display: "inline-block",
@@ -187,5 +221,10 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  jumpingArrows: {
+    position: "absolute",
+    bottom: 40,
+    right: 130,
   },
 };
