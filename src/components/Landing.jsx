@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Font from "react-font";
 import { motion } from "framer-motion";
 
@@ -36,9 +36,7 @@ const Welcome = () => {
       </Font>
       <div style={styles.welcomeBottomContainer}>
         <div style={styles.welcomeBottomText}>
-          <Font family="Play">
-            A Portfolio Megaverse
-          </Font>
+          <Font family="Play">A Portfolio Megaverse</Font>
         </div>
       </div>
     </div>
@@ -100,15 +98,69 @@ const NAME = () => {
   );
 };
 
+const AnimatingArrows = () => {
+  const arrowContainerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    appear: {
+      opacity: 1,
+      transition: {
+        // delay: 2,
+        staggerChildren: 0.2,
+        // repeat: Infinity,
+        // repeatDelay: 1,
+      },
+    },
+    disappear: {
+      opacity: 0,
+      transition: {
+        delay: 1.6,
+        when: "afterChildren",
+      },
+    },
+  };
+  const arrowVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    appear: {
+      opacity: 1,
+    },
+  };
+
+  const [reset, setReset] = useState(false);
+
+  return (
+    <motion.div
+      key="arrows"
+      variants={arrowContainerVariants}
+      initial="hidden"
+      animate={reset ? "disappear" : "appear"}
+      style={styles.arrowsContainer}
+      onAnimationComplete={() => {
+        setReset(!reset)
+      }}
+    >
+      <motion.div variants={arrowVariants} style={styles.arrow} />
+      <motion.div variants={arrowVariants} style={styles.arrow} />
+      <motion.div variants={arrowVariants} style={styles.arrow} />
+      <motion.div variants={arrowVariants} style={styles.arrow} />
+    </motion.div>
+  );
+};
+
 const Landing = () => {
   // const [showName, setShowName] = useState(false);
   // const [showClickMeButton, setshowClickMeButton] = useState(false);
 
   return (
     <div className="mainContainerLanding" style={styles.mainContainer}>
-      <div style={styles.transparencyLayer}>
-      </div>
+      <div style={styles.transparencyLayer}></div>
+
       <Welcome />
+
+      <AnimatingArrows />
 
       {/* <motion.div
         style={styles.rectangle}
@@ -147,11 +199,6 @@ const Landing = () => {
           )}
         </motion.div>
       )} */}
-
-      <motion.div
-        className="jumping-arrows"
-        style={styles.jumpingArrows}
-      ></motion.div>
     </div>
   );
 };
@@ -171,8 +218,8 @@ const styles = {
   transparencyLayer: {
     width: "100%",
     height: "100%",
-    position: 'absolute',
-    backgroundColor: 'black',
+    position: "absolute",
+    backgroundColor: "black",
     opacity: 0.8,
     zIndex: 2,
     top: 0,
@@ -184,17 +231,15 @@ const styles = {
   },
   welcomeText: {
     fontWeight: "bold",
-    fontSize: '7vw',
+    fontSize: "7vw",
     color: "#ffffff",
     letterSpacing: 9,
     transform: `scaleY(0.9)`,
   },
-  welcomeBottomContainer: {
-
-  },
+  welcomeBottomContainer: {},
   welcomeBottomText: {
     fontWeight: "bold",
-    fontSize: '2vw',
+    fontSize: "2vw",
     color: "#25b448",
     letterSpacing: 5,
   },
@@ -222,9 +267,22 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
   },
-  jumpingArrows: {
-    position: "absolute",
-    bottom: 40,
-    right: 130,
+  arrowsContainer: {
+    zIndex: 3,
+    display: "flex",
+    flexDirection: "column",
+    marginTop: 40,
+    position: "relative",
+    top: "22vh",
+  },
+  arrow: {
+    border: "solid white",
+    borderWidth: "0 15px 15px 0px",
+    display: "inline-block",
+    padding: 3,
+    width: 17,
+    height: 17,
+    webkitTransform: "rotate(45deg)",
+    marginTop: -6,
   },
 };

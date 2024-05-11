@@ -3,9 +3,11 @@ import "./App.css";
 import { motion } from "framer-motion";
 import backgroundImage from "./assets/swiss-alps-wallpaper.jpg";
 
-import Landing from "./components/Landing";
 import Header from "./components/Header";
+import Landing from "./components/Landing";
 import Name from "./components/Name";
+import Projects from "./components/Projects";
+import Quote from "./components/Quote";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         {/* <Header /> */}
         <Landing />
         <Name />
+        <Projects />
+        <Quote />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ const Name = () => {
       {/* <div style={styles.imageContainer}>
       <img src={interstellarImage} alt="" style={styles.interstellarImg}/>
       </div> */}
+      <div style={styles.xboxControllerContainer}></div>
       <div style={styles.personaContainer}>
         <motion.span
           // variants={variants}
@@ -38,9 +39,9 @@ const Name = () => {
           <motion.div style={styles.creativeProfession}>
             Creative Frontend Designer
           </motion.div>
-          <motion.div style={styles.virtualProfession}>
+          {/* <motion.div style={styles.virtualProfession}>
             Virtual Assassin
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         <motion.span style={styles.frameBottomVert}></motion.span>
@@ -56,26 +57,26 @@ const styles = {
   mainContainer: {
     backgroundColor: "black",
     width: "100vw",
-    height: "90vh",
+    height: "100vh",
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
   },
-  imageContainer: {
-    width: "40%",
+  xboxControllerContainer: {
+    width: "50%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
   },
   personaContainer: {
-    width: "42%",
+    width: "50%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    alignSelf: "flex-start",
-    margin: "0px 80px",
+    padding: 25,
+    // margin: "0px 80px",
   },
   name: {
     color: "#25b448",
