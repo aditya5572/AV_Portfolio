@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import { projects } from "./utils/getProjects";
 
 const Projects = () => {
   return (
@@ -18,17 +17,14 @@ const styles = {
   mainContainer: {
     backgroundColor: "white",
     width: "100vw",
-    height: "90vh",
+    height: "100vh",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "column",
   },
   heading: {
     color: "black",
     fontSize: 28,
     letterSpacing: 4,
-
-    alignSelf: "start",
     marginTop: "2%",
   },
 };

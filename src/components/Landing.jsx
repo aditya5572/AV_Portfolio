@@ -24,7 +24,7 @@ const Welcome = () => {
                 whileHover={{
                   color: "#3ed6ff",
                   scaleY: 1.15,
-                  y: -8,
+                  y: -14,
                 }}
                 style={styles.welcomeText}
               >
@@ -115,7 +115,7 @@ const AnimatingArrows = () => {
     disappear: {
       opacity: 0,
       transition: {
-        delay: 1.6,
+        delay: 1.4,
         when: "afterChildren",
       },
     },
@@ -231,7 +231,7 @@ const styles = {
   },
   welcomeText: {
     fontWeight: "bold",
-    fontSize: "7vw",
+    fontSize: "6.6vw",
     color: "#ffffff",
     letterSpacing: 9,
     transform: `scaleY(0.9)`,
