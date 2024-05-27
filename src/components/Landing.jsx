@@ -24,7 +24,7 @@ const Welcome = () => {
                 whileHover={{
                   color: "#3ed6ff",
                   scaleY: 1.15,
-                  y: -14,
+                  y: -15,
                 }}
                 style={styles.welcomeText}
               >
@@ -107,7 +107,7 @@ const AnimatingArrows = () => {
       opacity: 1,
       transition: {
         // delay: 2,
-        staggerChildren: 0.2,
+        staggerChildren: 0.16,
         // repeat: Infinity,
         // repeatDelay: 1,
       },
@@ -115,7 +115,7 @@ const AnimatingArrows = () => {
     disappear: {
       opacity: 0,
       transition: {
-        delay: 1.4,
+        // delay: 1,
         when: "afterChildren",
       },
     },
@@ -138,7 +138,8 @@ const AnimatingArrows = () => {
       initial="hidden"
       animate={reset ? "disappear" : "appear"}
       style={styles.arrowsContainer}
-      onAnimationComplete={() => {
+      onAnimationComplete={async () => {
+        if (!reset) await new Promise(r => setTimeout(r, 800))
         setReset(!reset)
       }}
     >
@@ -194,7 +195,7 @@ const Landing = () => {
               <span></span>
               <span></span>
               <span></span>
-              <Font family="Changa">CLICK ME</Font>
+              <Font family="Changa">PLAY</Font>
             </motion.div>
           )}
         </motion.div>
@@ -208,7 +209,7 @@ export default Landing;
 const styles = {
   mainContainer: {
     width: "100vw",
-    height: "100vh",
+    height: "120vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -273,7 +274,7 @@ const styles = {
     flexDirection: "column",
     marginTop: 40,
     position: "relative",
-    top: "22vh",
+    top: "calc(100vh - 70%)",
   },
   arrow: {
     border: "solid white",
