@@ -52,7 +52,7 @@ const styles = {
   mainContainer: {
     backgroundColor: "black",
     width: "100vw",
-    height: "120vh",
+    height: "100vh",
     display: "flex",
     alignItems: "center",
   },

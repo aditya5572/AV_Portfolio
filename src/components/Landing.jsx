@@ -107,7 +107,7 @@ const AnimatingArrows = () => {
       opacity: 1,
       transition: {
         // delay: 2,
-        staggerChildren: 0.16,
+        staggerChildren: 0.15,
         // repeat: Infinity,
         // repeatDelay: 1,
       },
